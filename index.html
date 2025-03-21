@@ -1,43 +1,52 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon - บริษัทของคุณ</title>
+    <title>Coming Soon - Your Company</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             text-align: center;
-            background-color: #f4f4f4;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
             padding: 50px;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .container {
-            background: white;
+            background: rgba(255, 255, 255, 0.2);
             padding: 50px;
             max-width: 600px;
-            margin: auto;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
         }
         h1 {
-            color: #333;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
         }
         #countdown {
             font-size: 24px;
-            margin: 20px 0;
             font-weight: bold;
         }
         .logo {
-            max-width: 150px;
+            max-width: 120px;
             margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="Core Brilliant Logo-02.jpg" alt="โลโก้บริษัท" class="logo">
-        <h1>เว็บไซต์ของเรากำลังจะมาเร็วๆ นี้!</h1>
-        <p>เตรียมพบกับสิ่งที่น่าตื่นเต้น เร็วๆ นี้</p>
+        <img src="logo.png" alt="Company Logo" class="logo">
+        <h1>Coming Soon</h1>
+        <p>We're working on something amazing! Stay tuned.</p>
         <div id="countdown"></div>
     </div>
     <script>
@@ -47,7 +56,7 @@
                 const now = new Date().getTime();
                 const distance = launchDate - now;
                 if (distance < 0) {
-                    document.getElementById("countdown").innerHTML = "เราพร้อมแล้ว!";
+                    document.getElementById("countdown").innerHTML = "We're Live!";
                     clearInterval(timer);
                     return;
                 }
@@ -55,7 +64,7 @@
                 const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                document.getElementById("countdown").innerHTML = `${days} วัน ${hours} ชั่วโมง ${minutes} นาที ${seconds} วินาที`;
+                document.getElementById("countdown").innerHTML = `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
             }, 1000);
         }
         countdown();
