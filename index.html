@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - บริษัทของคุณ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 50px;
+        }
+        .container {
+            background: white;
+            padding: 50px;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        #countdown {
+            font-size: 24px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .logo {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="โลโก้บริษัท" class="logo">
+        <h1>เว็บไซต์ของเรากำลังจะมาเร็วๆ นี้!</h1>
+        <p>เตรียมพบกับสิ่งที่น่าตื่นเต้น เร็วๆ นี้</p>
+        <div id="countdown"></div>
+    </div>
+    <script>
+        function countdown() {
+            const launchDate = new Date("2025-06-01T00:00:00").getTime();
+            const timer = setInterval(function () {
+                const now = new Date().getTime();
+                const distance = launchDate - now;
+                if (distance < 0) {
+                    document.getElementById("countdown").innerHTML = "เราพร้อมแล้ว!";
+                    clearInterval(timer);
+                    return;
+                }
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                document.getElementById("countdown").innerHTML = `${days} วัน ${hours} ชั่วโมง ${minutes} นาที ${seconds} วินาที`;
+            }, 1000);
+        }
+        countdown();
+    </script>
+</body>
+</html>
